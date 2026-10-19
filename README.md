@@ -2,6 +2,8 @@
 
 **Español y ruso, paso a paso.**
 
+[Abrir la web](https://learning-es-ru.web.app/)
+
 Learning ES–RU nació de una necesidad real: aprender español y ruso mediante un intercambio de conocimientos. Como estudiante de Ingeniería de Software de la Universidad Peruana de Ciencias Aplicadas, estoy convirtiendo ese intercambio en una herramienta que otras personas puedan utilizar, estudiar y mejorar.
 
 El nombre elegido para el repositorio es **Learning-ES-RU**. La aplicación conserva la identidad visual «Entre palabras», el mensaje «Ayudando a JA :D» para español y «Aprendiendo ruso · para GP :D» para ruso.
@@ -104,67 +106,18 @@ Learning-ES-RU/
 └── README.md
 ```
 
-Los JSON contienen los textos de la interfaz y comparten las mismas claves, basadas en el texto original en español. El contenido educativo bilingüe está separado en `course*.js`.
-
-## Ejecutar y verificar
-
-Con Node.js instalado, sin instalar dependencias de la aplicación:
-
-```sh
-npm start
-```
-
-Abrir `http://localhost:4173/`. Es necesario un servidor HTTP: abrir el HTML con `file://` puede bloquear la carga de JSON mediante `fetch`.
-
-```sh
-npm run check
-```
-
-Las comprobaciones revisan las rutas, las preguntas, los recursos locales, los catálogos y los audios. También se prueban interacciones en el navegador. La revisión de tamaños móviles no sustituye una prueba física en Safari de iPhone.
-
-Para regenerar audios, usar un entorno opcional de Python con `edge-tts==7.3.1`:
-
-```sh
-node scripts/export-audio.cjs
-python scripts/generate-audio.py
-```
-
-Las voces son sintéticas: Dalia (`es-MX-DaliaNeural`) y Svetlana (`ru-RU-SvetlanaNeural`), generadas con el servicio de lectura en voz alta de Microsoft Edge mediante `edge-tts`. No son grabaciones de los participantes. La generación necesita conexión al servicio de voz. La web publicada reproduce los MP3 incluidos y no ejecuta Python ni solicita claves API a los visitantes.
-
-## Publicar en Firebase Hosting
-
-1. Crear o elegir el proyecto correspondiente en la [consola de Firebase](https://console.firebase.google.com/).
-2. Instalar la CLI si todavía no está disponible e iniciar sesión:
-
-```sh
-npm install -g firebase-tools
-firebase login
-```
-
-3. Desde la raíz del repositorio, asociar el proyecto, comprobar los archivos y publicar:
-
-```sh
-firebase use --add
-npm run check
-firebase deploy --only hosting
-```
-
-`firebase.json` ya indica que la carpeta pública es `public/`. La navegación utiliza fragmentos como `#ruta`, por lo que no necesita reescrituras del servidor. Los MP3 tienen nombres derivados de su contenido; los textos y scripts se revalidan para recibir las actualizaciones.
-
-La configuración no está asociada a una cuenta o proyecto concreto. La CLI mostrará la URL cuando se complete el despliegue. GitHub Actions únicamente valida el código; no publica la web ni requiere credenciales de Firebase.
-
-[Guía oficial de Firebase Hosting](https://firebase.google.com/docs/hosting/quickstart).
-
 ## Datos y privacidad
 
-Notas, palabras, preferencias y progreso se guardan en el navegador, separados por ruta. No hay cuentas ni sincronización entre dispositivos. Limpiar los datos del navegador puede borrarlos; las notas pueden descargarse. No se graba el micrófono ni se incluye analítica propia. El alojamiento y Google Fonts pueden recibir los datos habituales de las solicitudes web.
+El progreso, las palabras guardadas, las notas y las preferencias se guardan automáticamente en el navegador, separados por ruta. Para continuar, abre el mismo enlace desde el mismo navegador y dispositivo; cerrar la página no borra el avance.
+
+No hay cuentas ni sincronización entre dispositivos. Al borrar los datos del sitio también puede perderse el progreso local. La opción «Descargar mis notas» permite conservar el cuaderno como archivo de texto; no incluye una copia de los resultados de los ejercicios.
+
+No se graba el micrófono ni se incluye analítica propia. El alojamiento y Google Fonts pueden recibir los datos habituales de las solicitudes web.
 
 ## Contribuciones
 
 Se pueden proponer correcciones lingüísticas, mejoras de accesibilidad, ejemplos y funciones. Los aportes deben identificar sus fuentes y evitar datos personales o materiales sin permiso de reutilización.
 
-## Cómo lo describiría en mi CV
-
 **Learning ES–RU — Desarrollo web educativo**
 
-Plataforma educativa bilingüe con HTML, CSS y JavaScript, rutas de español y ruso, internacionalización mediante JSON, ejercicios interactivos, audio y persistencia local. Automatización de recursos y validaciones con Python y Node.js; configuración preparada para Firebase Hosting.
+Plataforma educativa bilingüe con HTML, CSS y JavaScript, rutas de español y ruso, internacionalización mediante JSON, ejercicios interactivos, audio y persistencia local. Automatización de recursos y validaciones con Python y Node.js.
