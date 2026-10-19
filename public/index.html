@@ -1,0 +1,40 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+  <meta name="theme-color" content="#294b3e">
+  <meta name="description" content="Learning ES–RU: proyecto personal para aprender español y ruso con explicaciones bilingües, ejercicios, audio y práctica compartida.">
+  <title>Entre palabras · Español paso a paso</title>
+  <link rel="icon" href="icon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="styles.css">
+  <script defer src="course.js"></script>
+  <script defer src="course-extra.js"></script>
+  <script defer src="course-russian.js"></script>
+  <script defer src="course-config.js"></script>
+  <script defer src="i18n.js"></script>
+  <script defer src="audio-manifest.js"></script>
+  <script defer src="app.js"></script>
+  <script defer src="speech.js"></script>
+  <script defer src="course-ui.js"></script>
+  <script defer src="app-tools.js"></script>
+</head>
+<body>
+  <a class="skip" href="#main" data-section="main">Ir al contenido</a>
+  <aside class="sidebar">
+    <a class="brand" href="#inicio" aria-label="Entre palabras, inicio"><span class="brand-icon">e<span>p</span></span><span>entre<br>palabras<span class="brand-caption">ESPAÑOL ↔ РУССКИЙ</span></span></a>
+    <div class="sidebar-course"><span class="small-dot"></span><span data-i18n="course">Tu espacio de aprendizaje</span></div>
+    <nav id="navigation" aria-label="Navegación principal"></nav>
+    <div class="side-note"><span class="tiny-spark">✳</span><p data-i18n="sideNote">Un idioma nuevo.<br>Un mundo más cerca.</p><span lang="ru">Маленькими шагами.</span></div>
+    <div class="learner"><div class="avatar">¡H!</div><div><strong data-i18n="learner">Hola, exploradora</strong><span data-i18n="beginner">Aprendiendo desde cero</span></div><span class="learner-star">✧</span></div>
+  </aside>
+  <div class="workspace">
+    <header class="topbar"><span class="breadcrumb" id="breadcrumb">Mi aprendizaje <span>/</span> Inicio</span><div class="top-actions"><span class="level-chip">A1 → A2</span><div class="lang-switch" role="group" aria-label="Idioma de la interfaz"><button id="lang-es" type="button">ES</button><button id="lang-ru" type="button">RU</button></div></div></header>
+    <div class="course-picker"><label for="course-direction" data-i18n="chooseCourse">Quiero aprender</label><select id="course-direction"><option value="es" data-i18n="courseSpanishOption">Español · para JA</option><option value="ru" data-i18n="courseRussianOption">Ruso · para GP</option></select><span data-i18n="courseHint">Dos rutas, cada una a su ritmo.</span></div>
+    <main id="main" tabindex="-1"></main>
+    <footer><span>entre palabras <span class="footer-dot">·</span> <span data-i18n="footer">Hecho para aprender juntos.</span></span><a href="#guia" data-i18n="method">Método y fuentes ↗</a></footer>
+  </div>
+  <audio id="lesson-audio" preload="none" playsinline></audio>
+  <div id="toast" class="toast" role="status" aria-live="polite"></div>
+</body>
+</html>

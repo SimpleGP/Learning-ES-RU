@@ -1,0 +1,11 @@
+{
+  "name": "learning-es-ru",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Web educativa para aprender español y ruso.",
+  "license": "UNLICENSED",
+  "scripts": {
+    "start": "node preview.cjs",
+    "check": "node check.cjs"
+  }
+}

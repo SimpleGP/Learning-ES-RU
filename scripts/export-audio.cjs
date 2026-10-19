@@ -1,0 +1,14 @@
+const fs=require('node:fs');
+const vm=require('node:vm');
+const path=require('node:path');
+const root=path.join(__dirname,'..');
+const read=p=>fs.readFileSync(path.join(root,p),'utf8');
+const courseData=JSON.parse(vm.runInNewContext(read('public/course.js')+'\n'+read('public/course-extra.js')+'\n'+read('public/course-russian.js')+'\nJSON.stringify({spanish:LESSONS,russian:RUSSIAN_LESSONS,ruSounds:RUSSIAN_SOUNDS,ruAlphabet:RUSSIAN_ALPHABET})'));
+const lessons=courseData.spanish;
+const tools=read('public/app-tools.js');
+const sounds=vm.runInNewContext(tools.match(/const SOUNDS=(\[[\s\S]*?\n\]);/)[1]);
+const alphabet=JSON.parse(tools.match(/function spanishAlphabetPanel\(\)\{const letters=("[^"]+")/)[1]).split('|').map(v=>v.split(':')[1]);
+const voiceSamples=vm.runInNewContext('('+read('public/speech.js').match(/const VOICE_SAMPLES=(\{[^\n]+\});/)[1]+')');
+const phrases=[...new Set([...lessons.flatMap(l=>[...l.words.map(w=>w[0]),...l.dialog.map(d=>d[0])]),...sounds.map(s=>s[5]),...alphabet,...Object.values(voiceSamples),...courseData.russian.flatMap(l=>[...l.words.map(w=>w[1]),...l.dialog.map(d=>d[1])]),...courseData.ruSounds.map(s=>s[5]),...courseData.ruAlphabet.split('|').map(v=>v.split(':')[1])])];
+fs.writeFileSync(path.join(root,'.audio-input.json'),JSON.stringify(phrases,null,2));
+console.log(`${phrases.length} frases exportadas para generar audios.`);
