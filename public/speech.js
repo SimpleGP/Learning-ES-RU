@@ -26,7 +26,7 @@ function say(text){
  }
  if(!('speechSynthesis'in window)||!('SpeechSynthesisUtterance'in window)){toast(t("Elige la voz incluida en Sonidos para escuchar los audios."));return;}
  refreshVoices();if(!ttsVoice){toast(t("No hay una voz en español en este dispositivo. Elige la voz incluida en Sonidos."));return;}
- const utterance=new SpeechSynthesisUtterance(text.replace(/ \/ /g,', '));utterance.lang=ttsVoice.lang;utterance.voice=ttsVoice;utterance.rate=0.92*speechPrefs.rate;utterance.pitch=1;utterance.volume=1;
+ const utterance=new SpeechSynthesisUtterance(text==='cu'?'cú':text.replace(/ \/ /g,', '));utterance.lang=ttsVoice.lang;utterance.voice=ttsVoice;utterance.rate=0.92*speechPrefs.rate;utterance.pitch=1;utterance.volume=1;
  utterance.onstart=()=>speechStatus(t("Escuchando: ")+ttsVoice.name);utterance.onend=()=>speechStatus(t("Listo. Ahora repite tú."));utterance.onerror=e=>{if(!['canceled','interrupted'].includes(e.error))toast(t("Esta voz no se pudo reproducir. Elige la voz incluida."));};
  window.currentUtterance=utterance;speechSynthesis.speak(utterance);
 }

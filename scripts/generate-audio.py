@@ -14,6 +14,7 @@ import edge_tts
 ROOT = Path(__file__).resolve().parent.parent
 VOICE = "es-MX-DaliaNeural"
 RATE = "-8%"
+PRONUNCIATION = {"cu": "cú"}
 
 
 async def main():
@@ -27,11 +28,12 @@ async def main():
     async def create(text):
         nonlocal completed
         voice = "ru-RU-SvetlanaNeural" if any("\u0400" <= c <= "\u04ff" for c in text) else VOICE
-        name = hashlib.sha256((voice + RATE + text).encode()).hexdigest()[:20] + ".mp3"
+        spoken = PRONUNCIATION.get(text, text).replace(" / ", ". ").replace("…", ".").replace("\u0301", "")
+        fingerprint = voice + RATE + text + (":" + spoken if text in PRONUNCIATION else "")
+        name = hashlib.sha256(fingerprint.encode()).hexdigest()[:20] + ".mp3"
         target = output / name
         async with semaphore:
             if not target.exists() or target.stat().st_size < 512:
-                spoken = text.replace(" / ", ". ").replace("…", ".").replace("\u0301", "")
                 for attempt in range(3):
                     try:
                         await edge_tts.Communicate(spoken, voice, rate=RATE).save(str(target) + ".part")

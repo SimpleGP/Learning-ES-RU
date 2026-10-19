@@ -95,7 +95,7 @@ const LESSON_AUDIO = Object.freeze({
   "comer": "audio/30362fd48f2f536a53f1.mp3",
   "compré": "audio/d82690a726a9e6cc573b.mp3",
   "creo que": "audio/ef11ddd84189dd2166cc.mp3",
-  "cu": "audio/6f90fb836c7dad3a262b.mp3",
+  "cu": "audio/2ac481f035ee7fb9f0ce.mp3",
   "cuatro, cinco, seis": "audio/92236000314b801c1e73.mp3",
   "de": "audio/431ce7d1ef1d4bd5bda0.mp3",
   "de pequeña": "audio/f264a350c48114c18a86.mp3",
