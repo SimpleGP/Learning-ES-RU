@@ -10,7 +10,7 @@ try{const raw=JSON.parse(localStorage.getItem(KEY)||'null');if(raw&&typeof raw==
 const save=()=>{try{localStorage.setItem(KEY,JSON.stringify(state));}catch{storageOK=false;}};
 const today=()=>{const d=new Date();return `${d.getFullYear()}-${String(d.getMonth()+1).padStart(2,'0')}-${String(d.getDate()).padStart(2,'0')}`;};
 const markDay=()=>{const d=today();if(!state.days.includes(d))state.days.push(d);save();};
-const DICT={"course":"Tu espacio de aprendizaje","sideNote":"Un idioma nuevo.<br>Un mundo más cerca.","learner":learningRussian?'Hola, GP':'Hola, JA',"beginner":"Aprendiendo desde cero","footer":"Hecho para aprender juntos.","method":"Método y fuentes ↗","chooseCourse":"Quiero aprender","courseHint":"Dos rutas, cada una a su ritmo."};
+const DICT={"course":"Tu espacio de aprendizaje","sideNote":"Español y ruso","sidebarTools":"Lecciones, audio y ejercicios.","learner":learningRussian?'Hola, GP':'Hola, JA',"beginner":"Aprendiendo desde cero","footer":"Hecho para aprender juntos.","method":"Método y fuentes ↗","chooseCourse":"Quiero aprender","courseHint":"Dos rutas, cada una a su ritmo."};
 const NAV=[["inicio","home","Inicio"],["ruta","book","Mi ruta"],["repaso","cards","Repaso"],["sonidos","sound","Sonidos"],["cuaderno","note","Cuaderno"],["guia","guide","Guía"]];
 const main=document.getElementById('main');
 let currentView='inicio',routeFilter='all',reviewMode='cards',vocabFilter='all',reviewIndex=0,reviewFlipped=false,reviewQueue=[],toastTimer,ttsVoice=null;
