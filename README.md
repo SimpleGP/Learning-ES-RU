@@ -6,7 +6,7 @@
 
 Learning ES–RU nació de una necesidad real: aprender español y ruso mediante un intercambio de conocimientos. Como estudiante de Ingeniería de Software de la Universidad Peruana de Ciencias Aplicadas, estoy convirtiendo ese intercambio en una herramienta que otras personas puedan utilizar, estudiar y mejorar.
 
-El nombre elegido para el repositorio es **Learning-ES-RU**. La aplicación conserva la identidad visual «Entre palabras», el mensaje «Ayudando a JA :D» para español y «Aprendiendo ruso · para GP :D» para ruso.
+El nombre elegido para el repositorio es **Learning-ES-RU**. La aplicación conserva la identidad visual «Entre palabras», el mensaje «Ayudando a JA» para español y «Aprendiendo ruso · para GP» para ruso.
 
 ## Objetivo y alcance
 
