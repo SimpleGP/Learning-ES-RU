@@ -27,8 +27,8 @@ async def main():
 
     async def create(text):
         nonlocal completed
-        voice = "ru-RU-SvetlanaNeural" if any("\u0400" <= c <= "\u04ff" for c in text) else VOICE
-        spoken = PRONUNCIATION.get(text, text).replace(" / ", ". ").replace("…", ".").replace("\u0301", "")
+        voice = "en-US-AriaNeural" if text.startswith("en:") else "ru-RU-SvetlanaNeural" if any("\u0400" <= c <= "\u04ff" for c in text) else VOICE
+        spoken = PRONUNCIATION.get(text, text[3:] if text.startswith("en:") else text).replace(" / ", ". ").replace("…", ".").replace("\u0301", "")
         fingerprint = voice + RATE + text + (":" + spoken if text in PRONUNCIATION else "")
         name = hashlib.sha256(fingerprint.encode()).hexdigest()[:20] + ".mp3"
         target = output / name
@@ -52,7 +52,7 @@ async def main():
 
     await asyncio.gather(*(create(text) for text in phrases))
     content = "/* Static audio: Dalia es-MX and Svetlana ru-RU, rate -8%. */\n"
-    content += "const RECORDED_VOICE = {es:'Dalia',ru:'Svetlana'};\n"
+    content += "const RECORDED_VOICE = {es:'Dalia',ru:'Svetlana',en:'Aria'};\n"
     content += "const LESSON_AUDIO = Object.freeze(" + json.dumps(dict(sorted(manifest.items())), ensure_ascii=False, indent=2) + ");\n"
     (ROOT / "public" / "audio-manifest.js").write_text(content, encoding="utf-8")
     print(f"Ready: {len(manifest)} phrases, {sum(f.stat().st_size for f in output.glob('*.mp3'))} bytes", flush=True)

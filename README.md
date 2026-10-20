@@ -1,10 +1,10 @@
 # Learning ES–RU
 
-**Español y ruso, paso a paso.**
+**Español, ruso e inglés, paso a paso.**
 
 [Abrir la web](https://learning-es-ru.web.app/)
 
-Learning ES–RU nació de una necesidad real: aprender español y ruso mediante un intercambio de conocimientos. Como estudiante de Ingeniería de Software de la Universidad Peruana de Ciencias Aplicadas, estoy convirtiendo ese intercambio en una herramienta que otras personas puedan utilizar, estudiar y mejorar.
+Learning ES–RU nació de una necesidad real: aprender español, ruso e inglés mediante un intercambio de conocimientos. Como estudiante de Ingeniería de Software de la Universidad Peruana de Ciencias Aplicadas, estoy convirtiendo ese intercambio en una herramienta que otras personas puedan utilizar, estudiar y mejorar.
 
 El nombre elegido para el repositorio es **Learning-ES-RU**. La aplicación conserva la identidad visual «Entre palabras», el mensaje «Ayudando a JA» para español y «Aprendiendo ruso · para GP» para ruso.
 
@@ -12,15 +12,17 @@ El nombre elegido para el repositorio es **Learning-ES-RU**. La aplicación cons
 
 Facilitar el aprendizaje gradual entre hispanohablantes y rusohablantes mediante explicaciones, vocabulario, diálogos, audios, ejercicios y práctica compartida. También me permite aplicar conocimientos de mi carrera y construir una experiencia demostrable para mi portafolio.
 
-El proyecto reúne lecciones, audios, ejercicios, diccionario y cuaderno en un mismo lugar. El código está disponible en [SimpleGP/Learning-ES-RU](https://github.com/SimpleGP/Learning-ES-RU) e incluye la configuración para alojar la web estática en Firebase Hosting.
+El proyecto incluye cuatro rutas con progreso independiente: español para JA, ruso para GP, inglés para JA e inglés para GP. Reúne lecciones, audios, ejercicios, diccionario y cuaderno en un mismo lugar. El código está disponible en [SimpleGP/Learning-ES-RU](https://github.com/SimpleGP/Learning-ES-RU) e incluye la configuración para alojar la web estática en Firebase Hosting.
 
 ## Funcionalidades
 
 - **Español para JA:** 24 lecciones introductorias con situaciones A1–A2, 144 expresiones y 96 preguntas corregidas.
 - **Ruso para GP:** 12 lecciones iniciales con situaciones A1, 72 expresiones y 48 preguntas. Incluye cirílico, presentación, números, familia, rutinas, ubicación, comida, gustos y una introducción al pasado y los planes.
+- **Inglés para JA:** 12 lecciones introductorias con explicaciones en ruso, 72 expresiones y 48 preguntas.
+- **Inglés para GP:** 12 lecciones introductorias con explicaciones en español, 72 expresiones y 48 preguntas.
 - Selector del idioma que quiero estudiar, independiente del idioma de los menús.
 - Explicaciones y diálogos bilingües, práctica oral y escritura.
-- Audios incluidos con Dalia para español y Svetlana para ruso; prueba, velocidad y detención, con voces del dispositivo como alternativa.
+- Audios incluidos con Dalia para español, Svetlana para ruso y Aria para inglés; prueba, velocidad y detención, con voces del dispositivo como alternativa.
 - Diccionario del curso, búsqueda en los dos idiomas, favoritos y tarjetas de repaso. Es una selección de vocabulario; no contiene todas las palabras de los dos idiomas.
 - Cuaderno descargable y progreso local separado por ruta.
 - Diseño adaptable a móvil y escritorio, navegación por teclado y controles táctiles.
@@ -76,6 +78,8 @@ A partir de esas fuentes preparé una selección de explicaciones, ejemplos y ej
 
 Completar las microlecciones no demuestra por sí solo un nivel A1 o A2. La conversación, la lectura, la escritura y la escucha requieren práctica adicional.
 
+Para las rutas introductorias de inglés utilicé como orientación las situaciones comunicativas A1 del [British Council](https://learnenglish.britishcouncil.org/level/understand-your-level/a1-elementary). Las lecciones, ejemplos y preguntas de estas rutas son originales; no se incluyen sus cursos o grabaciones.
+
 ## Estructura
 
 ```text
@@ -89,6 +93,7 @@ Learning-ES-RU/
 │   ├── i18n.js
 │   ├── course.js
 │   ├── course-extra.js
+│   ├── course-english.js
 │   ├── course-russian.js
 │   ├── course-config.js
 │   ├── course-ui.js
@@ -120,4 +125,4 @@ Se pueden proponer correcciones lingüísticas, mejoras de accesibilidad, ejempl
 
 **Learning ES–RU — Desarrollo web educativo**
 
-Plataforma educativa bilingüe con HTML, CSS y JavaScript, rutas de español y ruso, internacionalización mediante JSON, ejercicios interactivos, audio y persistencia local. Automatización de recursos y validaciones con Python y Node.js.
+Plataforma educativa bilingüe con HTML, CSS y JavaScript, rutas de español, ruso e inglés, internacionalización mediante JSON, ejercicios interactivos, audio y persistencia local. Automatización de recursos y validaciones con Python y Node.js.

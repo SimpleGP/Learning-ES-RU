@@ -4,9 +4,9 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
   <meta name="theme-color" content="#294b3e">
-  <meta name="description" content="Learning ES–RU: un proyecto para conectar el español y el ruso con lecciones, ejercicios, audios y práctica en ambos idiomas.">
-  <meta property="og:title" content="Learning ES–RU · Español y ruso">
-  <meta property="og:description" content="Learning ES–RU: un proyecto para conectar el español y el ruso con lecciones, ejercicios, audios y práctica en ambos idiomas.">
+  <meta name="description" content="Learning ES–RU: un proyecto para conectar el español, el ruso y el inglés con lecciones, ejercicios, audios y práctica en ambos idiomas.">
+  <meta property="og:title" content="Learning ES–RU · Español, ruso e inglés">
+  <meta property="og:description" content="Learning ES–RU: un proyecto para conectar el español, el ruso y el inglés con lecciones, ejercicios, audios y práctica en ambos idiomas.">
   <meta property="og:url" content="https://learning-es-ru.web.app/">
   <title>Entre palabras · Español paso a paso</title>
   <link rel="icon" href="icon.svg" type="image/svg+xml">
@@ -14,6 +14,7 @@
   <script defer src="course.js"></script>
   <script defer src="course-extra.js"></script>
   <script defer src="course-russian.js"></script>
+  <script defer src="course-english.js"></script>
   <script defer src="course-config.js"></script>
   <script defer src="i18n.js"></script>
   <script defer src="audio-manifest.js"></script>
@@ -25,15 +26,15 @@
 <body>
   <a class="skip" href="#main" data-section="main">Ir al contenido</a>
   <aside class="sidebar">
-    <a class="brand" href="#inicio" aria-label="Entre palabras, inicio"><span class="brand-icon">e<span>p</span></span><span>entre<br>palabras<span class="brand-caption">ESPAÑOL / РУССКИЙ</span></span></a>
+    <a class="brand" href="#inicio" aria-label="Entre palabras, inicio"><span class="brand-icon">e<span>p</span></span><span>entre<br>palabras<span class="brand-caption">ES / RU / EN</span></span></a>
     <div class="sidebar-course"><span data-i18n="course">Tu espacio de aprendizaje</span></div>
     <nav id="navigation" aria-label="Navegación principal"></nav>
-    <div class="side-note"><p data-i18n="sideNote">Español y ruso</p><span data-i18n="sidebarTools">Lecciones, audio y ejercicios.</span></div>
+    <div class="side-note"><p data-i18n="sideNote">Español, ruso e inglés</p><span data-i18n="sidebarTools">Lecciones, audio y ejercicios.</span></div>
     <div class="learner"><div class="avatar">¡H!</div><div><strong data-i18n="learner">Hola, exploradora</strong><span data-i18n="beginner">Aprendiendo desde cero</span></div></div>
   </aside>
   <div class="workspace">
     <header class="topbar"><span class="breadcrumb" id="breadcrumb">Mi aprendizaje <span>/</span> Inicio</span><div class="top-actions"><span class="level-chip">A1 - A2</span><div class="lang-switch" role="group" aria-label="Idioma de la interfaz"><button id="lang-es" type="button">ES</button><button id="lang-ru" type="button">RU</button></div></div></header>
-    <div class="course-picker"><label for="course-direction" data-i18n="chooseCourse">Quiero aprender</label><select id="course-direction"><option value="es" data-i18n="courseSpanishOption">Español · para JA</option><option value="ru" data-i18n="courseRussianOption">Ruso · para GP</option></select><span data-i18n="courseHint">Dos rutas, cada una a su ritmo.</span></div>
+    <div class="course-picker"><label for="course-direction" data-i18n="chooseCourse">Quiero aprender</label><select id="course-direction"><option value="es" data-i18n="courseSpanishOption">Español · para JA</option><option value="ru" data-i18n="courseRussianOption">Ruso · para GP</option><option value="en-ja" data-i18n="courseEnglishJA">Inglés para JA</option><option value="en-gp" data-i18n="courseEnglishGP">Inglés para GP</option></select><span data-i18n="courseHint">Cuatro rutas con progreso independiente.</span></div>
     <main id="main" tabindex="-1"></main>
     <footer><span>entre palabras <span class="footer-dot">·</span> <span data-i18n="footer">Hecho para aprender juntos.</span></span><a href="#guia" data-i18n="method">Método y fuentes </a></footer>
   </div>
